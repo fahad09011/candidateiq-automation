@@ -21,10 +21,27 @@ An open-source, production-ready AI recruitment automation workflow built with <
 
 - [Overview](#-overview)
 - [Key Features](#-key-features)
-- [Workflow Highlights](#-workflow-highlights)
 - [Business Value](#-business-value)
 - [High-Level Workflow](#-high-level-workflow)
 - [Architecture Preview](#-architecture-preview)
+- [Technology Stack](#-technology-stack)
+- [Prerequisites](#-prerequisites)
+- [Repository Structure](#-repository-structure)
+- [Getting Started](#-getting-started)
+- [Required Credentials](#-required-credentials)
+- [Database Schema](#-database-schema)
+- [Workflow Configuration](#️-workflow-configuration)
+- [AI Pipeline](#-ai-pipeline)
+- [Import Notes](#-import-notes)
+- [Error Handling](#-error-handling)
+- [Execution Logging](#-execution-logging)
+- [Architecture Decisions](#-architecture-decisions)
+- [Security](#-security)
+- [Scalability](#-scalability)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
 - [Screenshots](#-screenshots)
 
 ---
@@ -134,24 +151,6 @@ This allows anyone to customize the workflow without modifying dozens of individ
 
 ---
 
-# 🚀 Workflow Highlights
-
-CandidateIQ automates the complete recruitment lifecycle:
-
-- Receive candidate applications
-- Upload and store resumes
-- Extract structured resume information using AI
-- Evaluate candidate suitability using AI
-- Detect duplicate candidates
-- Create candidate and application records
-- Notify HR through Slack
-- Allow manual HR approval
-- Automatically schedule interviews
-- Send professional candidate emails
-- Record execution logs for operational monitoring
-
----
-
 # 💼 Business Value
 
 CandidateIQ helps recruitment teams by:
@@ -176,75 +175,40 @@ CandidateIQ helps recruitment teams by:
 
 ```text
 Candidate Application
-
         │
-
         ▼
-
 Receive Job Application
-
         │
-
         ▼
-
 Upload Resume
-
         │
-
         ▼
-
 AI Resume Extraction
-
         │
-
         ▼
-
 Candidate Profile Extraction
-
         │
-
         ▼
-
 AI Candidate Evaluation
-
         │
-
         ▼
-
 Duplicate Candidate Detection
-
         │
-
         ▼
-
 Candidate Creation / Lookup
-
         │
-
         ▼
-
 Application Creation
-
         │
-
         ▼
-
 Slack HR Approval
-
         │
-
  ┌──────┴──────┐
-
  ▼             ▼
-
 Rejected     Approved
-
  ▼             ▼
-
 Email      Calendar Event
-
  ▼             ▼
-
 Finish      Interview Invitation
 ```
 
@@ -255,22 +219,17 @@ Finish      Interview Invitation
 CandidateIQ follows a modular architecture built around native n8n nodes.
 
 ```text
-Google Form
+Job Application Form
       │
       ▼
-      n8n
+     n8n
       │
-      ├───────────── AI Processing
-      │
-      ├───────────── Supabase
-      │
-      ├───────────── Slack
-      │
-      ├───────────── Google Calendar
-      │
-      ├───────────── Gmail
-      │
-      └───────────── Execution Logging
+      ├── AI Processing
+      ├── Supabase
+      ├── Slack
+      ├── Google Calendar
+      ├── Gmail
+      └── Execution Logging
 ```
 
 The workflow is designed to keep business logic, configuration, operational logging, and integrations clearly separated, making it easier to maintain and extend.
@@ -305,7 +264,7 @@ CandidateIQ leverages modern cloud services and AI technologies to automate the 
 | **Google Calendar** | Interview scheduling |
 | **Gmail** | Candidate communication |
 | **Slack** | HR approval workflow and notifications |
-| **Google Forms** | Candidate application intake |
+| **Webhook (form intake)** | Candidate application intake — accepts submissions from any external form, e.g. Google Forms |
 
 ---
 
@@ -597,9 +556,7 @@ Each business error:
 
 ## Global Error Workflow
 
-Unexpected workflow failures are handled by a dedicated Global Error Workflow.
-
-This captures failures that are outside normal business logic, such as unexpected node errors or infrastructure issues.
+For unexpected failures outside normal business logic (unhandled node errors, infrastructure issues), n8n supports attaching a dedicated Global Error Workflow at the workflow-settings level. If you're deploying CandidateIQ, confirm this is configured for your instance under **Workflow Settings → Error Workflow** — it is not bundled inside this workflow's JSON and must be set up separately.
 
 Using both approaches separates:
 
@@ -769,13 +726,13 @@ Future SaaS enhancements such as multi-tenancy can be added without redesigning 
 - Professional Email Templates
 - Configuration Node
 - Business Error Handling
-- Global Error Workflow
 - Execution Logging
 
 ---
 
 ## 🚧 Planned
 
+- Global Error Workflow attachment (see Error Handling section)
 - Multi-language email templates
 - Multiple interviewers
 - Candidate self-service interview rescheduling
@@ -917,5 +874,3 @@ Happy automating! 🚀
 ![Email](assets/interview-email.png)
 
 ---
-
-
