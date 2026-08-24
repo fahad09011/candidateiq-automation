@@ -896,15 +896,11 @@ Happy automating! 🚀
 
 # ⚙️ Configuration Node
 
-![Configuration](docs/screenshots/configuration-node.png)
+![Configuration](assets/configurenode.png)
 
 ---
 
-# 🤖 AI Evaluation
 
-![AI Evaluation](docs/screenshots/ai-evaluation.png)
-
----
 
 # 💬 Slack Approval
 
@@ -914,7 +910,7 @@ Happy automating! 🚀
 
 # 📅 Google Calendar
 
-![Calendar](docs/screenshots/calendar-event.png)
+![Calendar](assets/google-calendar-event.png)
 
 ---
 
@@ -924,6 +920,4 @@ Happy automating! 🚀
 
 ---
 
-# 🚨 Error Notification
 
-![Error](docs/screenshots/error-handling.png)
