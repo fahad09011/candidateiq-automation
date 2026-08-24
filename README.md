@@ -908,7 +908,7 @@ Happy automating! 🚀
 
 # 💬 Slack Approval
 
-![Slack](docs/screenshots/slack-approval.png)
+![Slack](assets/HRdecision.png)
 
 ---
 
