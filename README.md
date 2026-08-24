@@ -916,7 +916,7 @@ Happy automating! 🚀
 
 # 📧 Interview Email
 
-![Email](docs/screenshots/interview-email.png)
+![Email](assets/interview-email.png)
 
 ---
 
