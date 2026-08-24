@@ -896,7 +896,7 @@ Happy automating! 🚀
 
 # ⚙️ Configuration Node
 
-![Configuration](assets/configurenode.png)
+![Configuration](assets/configureNode.png)
 
 ---
 
