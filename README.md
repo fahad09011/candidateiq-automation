@@ -279,18 +279,16 @@ The workflow is designed to keep business logic, configuration, operational logg
 
 # 📸 Screenshots
 
-> Screenshots will be added in a future release.
 
-Planned screenshots include:
+
+Attached screenshots include:
 
 - Complete Workflow Overview
 - Configuration Node
 - Database Schema
-- AI Evaluation Section
 - Slack Approval Message
 - Interview Invitation Email
 - Google Calendar Event
-- Error Notification
 - Candidate Application Form
 
 ---
