@@ -890,7 +890,7 @@ Happy automating! 🚀
 
 # 📸 Workflow Overview
 
-![Workflow Overview](docs/screenshots/workflow-overview.png)
+![Workflow Overview](assets/workflow-overview.png)
 
 ---
 
